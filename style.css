@@ -18,6 +18,10 @@
     text-align: center;
     padding: 15px 0;
     height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 
   .scoreboard{
@@ -42,10 +46,6 @@
     justify-content: center;
     
   }
-  .spiral{
-    font-size: 30px;
-  }
-
   .correct{
     background-color: #006300;
   }
@@ -66,4 +66,17 @@
         100% {
         border: 3px solid #ccc;
         }
+    }
+
+  .spiral{
+    font-size: 30px;
+    animation:spin 1.5s linear infinite;
+  }  
+    @keyframes spin { 
+        to { 
+        transform: rotate(360deg); 
+        } 
+    }
+    .hidden{
+        visibility:visible;
     }
