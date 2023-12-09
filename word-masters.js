@@ -16,16 +16,33 @@ async function init(){
         
     }
 
+
     async function commit(){
         if(currentGuess.length != ANSWER_LENGTH){
             return;
         }
+
+        // TODO validate the word
+
+        // TODO set correct, wrong or close
+
+        // TODO win/lose?
+
+
         //first row is complete
         currentRow++;
         currentGuess= "";
 
     }
 
+    function backspace(){
+        if(currentGuess.length = 0){
+            return;
+        }
+        currentGuess = currentGuess.substring(0, currentGuess.length -1);
+        letters[ ANSWER_LENGTH * currentRow + currentGuess.length ].innerText = "";
+
+    }
 
 
     document.addEventListener('keydown' , function handleKeyPress (event){
@@ -43,6 +60,7 @@ async function init(){
         }
     });
 }
+ 
 
 function isLetter(letter){
     return /^[a-zA-Z]$/.test(letter);
