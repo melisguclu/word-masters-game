@@ -56,6 +56,9 @@
   .wrong{
     background-color: #888888;
   }
+  .changetextcolor{
+    color: white;
+  }
   .invalid{
     animation: flash 1s;
   }

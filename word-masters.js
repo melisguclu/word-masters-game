@@ -51,7 +51,10 @@ async function init(){
             markInvalidWord();
             return;
         }
-
+       // changing the color of the letters 
+       for(let i = 0; i < ANSWER_LENGTH; i++){
+        letters[ ANSWER_LENGTH * currentRow + i].classList.add("changetextcolor");
+         }
 
         // set correct, wrong or close
         const guessParts = currentGuess.split("");
