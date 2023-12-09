@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  .navbar{
+    border-bottom: 2px solid black;
+    color: black;
+    text-align: center;
+    padding: 15px 0;
+  }
+  .wait-bar{
+    text-align: center;
+    padding: 15px 0;
+    height: 60px;
+  }
+
+  .scoreboard{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 295px;
+    row-gap: 10px;
+    column-gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+  .scoreboard-letter{
+    width: 50px;
+    height: 50px;
+    grid-column: 1fr;
+    font-size: 30px;
+    text-transform: uppercase;
+    border: 3px solid #ccc;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .spiral{
+    font-size: 30px;
+  }
