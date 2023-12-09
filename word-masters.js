@@ -16,9 +16,7 @@ async function init(){
     setLoading(false);
     isLoading= false;
     
-
-    console.log(word);
-
+    
     function addLetter (letter) {
         if(currentGuess.length < ANSWER_LENGTH){
             currentGuess += letter; // add letter to the end
@@ -35,7 +33,7 @@ async function init(){
             return;
         }
         
-        // TODO validate the word
+        // validate the word
         isLoading = true;
         setLoading(true);
         const response = await fetch("https://words.dev-apis.com/validate-word" , {
@@ -55,9 +53,7 @@ async function init(){
         }
 
 
-
-
-        // TODO set correct, wrong or close
+        // set correct, wrong or close
         const guessParts = currentGuess.split("");
         const map = makeMap(wordParts);
 
@@ -108,36 +104,30 @@ async function init(){
     }
 
     function markInvalidWord(){
-        //alert('not a valid word');
         for(let i = 0; i < ANSWER_LENGTH; i++){
             letters[ ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); // remove invalid class if it exists
 
             setTimeout(function () { 
             letters[ ANSWER_LENGTH * currentRow + i].classList.add("invalid"); // add invalid class
-
             }, 10);
-           
         }
     }
 
 
     document.addEventListener('keydown' , function handleKeyPress (event){
-
         if(done || isLoading){
             return;
         }
-
-
 
         const action = event.key; // get pressed 
         console.log(action);
 
         if(action === 'Enter'){
-           commit(); //TODO
+           commit(); 
         } else if(action === "Backspace"){
-            backspace(); //TODO
+            backspace(); 
         } else if(isLetter(action)){
-            addLetter(action.toUpperCase()); // TODO addLetter 
+            addLetter(action.toUpperCase()); 
         }else{
             //ignore
         }
