@@ -35,20 +35,23 @@ async function init(){
         // TODO set correct, wrong or close
 
         const guessParts = currentGuess.split("");
+        const map = makeMap(wordParts);
 
         for(let i = 0; i< ANSWER_LENGTH; i ++){
             //mark as correct
             if(guessParts[i] === wordParts[i]){
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("correct");
+                map[guessParts[i]]--;
             }
         }
 
-        for(let i = 0; i< ANSWER_LENGTH; i ++){
-            //mark as correct
+        for(let i = 0; i < ANSWER_LENGTH; i ++){
             if(guessParts[i] === wordParts[i]){
                 //already handled
-            } else if(wordParts.includes(guessParts[i])){
+            } else if(wordParts.includes(guessParts[i]) && map[guessParts[i]] > 0){
+                // mark as close
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("close");
+                map[guessParts[i]]--;
             } else{
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("wrong");
             }
@@ -96,6 +99,23 @@ function isLetter(letter){
 
 function setLoading(isLoading){
     loadingDiv.classList.toggle('show' , isLoading); // if isLoading is true, add show class
+}
+
+function makeMap (array) {  // keep track of how many of each letter
+    const obj = {};
+
+    for(let i = 0 ; i< array.length ; i++){
+        const letter = array[i];
+        if(obj[letter]){
+            obj[letter]++;
+        } else{
+            obj[letter] = 1;
+        }
+    }
+
+    return obj;
+
+
 }
 
 
