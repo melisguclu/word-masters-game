@@ -36,9 +36,28 @@ async function init(){
         }
         
         // TODO validate the word
+        isLoading = true;
+        setLoading(true);
+        const response = await fetch("https://words.dev-apis.com/validate-word" , {
+            method: "POST",
+            body: JSON.stringify({word: currentGuess})
+        });
+
+        const responseObject = await response.json();
+        const validWord = responseObject.validWord;
+
+        isLoading = false;
+        setLoading(false);
+
+        if(!validWord){
+            markInvalidWord();
+            return;
+        }
+
+
+
 
         // TODO set correct, wrong or close
-
         const guessParts = currentGuess.split("");
         const map = makeMap(wordParts);
 
@@ -85,6 +104,19 @@ async function init(){
         currentGuess = currentGuess.substring(0, currentGuess.length -1);
         letters[ ANSWER_LENGTH * currentRow + currentGuess.length ].innerText = "";
 
+    }
+
+    function markInvalidWord(){
+        //alert('not a valid word');
+        for(let i = 0; i < ANSWER_LENGTH; i++){
+            letters[ ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); // remove invalid class if it exists
+
+            setTimeout(function () { 
+            letters[ ANSWER_LENGTH * currentRow + i].classList.add("invalid"); // add invalid class
+
+            }, 10);
+           
+        }
     }
 
 
