@@ -87,6 +87,7 @@ async function init(){
          if(currentGuess === word){
              //win
              alert('you win');
+             document.querySelector('.game-name').classList.add('winner')
              done = true;
              return;
             } else if(currentRow === ROUNDS){
