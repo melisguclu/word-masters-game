@@ -77,6 +77,6 @@
         transform: rotate(360deg); 
         } 
     }
-    .hidden{
-        visibility:visible;
+    .shpw{
+        visibility: visible ;
     }
