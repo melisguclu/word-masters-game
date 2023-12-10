@@ -32,7 +32,8 @@ async function init(){
         if(currentGuess.length != ANSWER_LENGTH){
             return;
         }
-        
+       
+    
         // validate the word
         isLoading = true;
         setLoading(true);
@@ -51,6 +52,23 @@ async function init(){
             markInvalidWord();
             return;
         }
+       
+        letters.forEach((letter) => {
+            letter.classList.remove('flipping');
+        });
+        
+        // Add flipping class to the letters in the current guess
+        // Add flipping class to the letters in the current guess with a delay
+        for (let i = 0; i < currentGuess.length; i++) {
+            const index = ANSWER_LENGTH * currentRow + i;
+            if (letters[index]) {
+            setTimeout(() => {
+                letters[index].classList.add('flipping');
+            }, i * 200); // Adjust the delay duration (in milliseconds) as needed
+            }
+        }
+            
+
        // changing the color of the letters 
        for(let i = 0; i < ANSWER_LENGTH; i++){
         letters[ ANSWER_LENGTH * currentRow + i].classList.add("changetextcolor");
