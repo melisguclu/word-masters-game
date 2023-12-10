@@ -144,5 +144,5 @@
   }
   
   .flipping {
-    animation: flip 1s ease-in-out;
+    animation: flip 0.7s ease-in-out;
   }
