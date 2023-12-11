@@ -3,27 +3,28 @@ const loadingDiv = document.querySelector('.wait-bar');
 const ANSWER_LENGTH = 5;
 const ROUNDS = 6;
 
-// Get the modal element
 const modal = document.getElementById("howToPlayModal");
 
-// Get the close button element
 const closeBtn = document.getElementsByClassName("close-btn")[0];
 
-// Function to show the modal
+const openBtn = document.getElementById("howToPlayBtn");
+
+//to show the modal
 function showModal() {
   modal.style.display = "block";
 }
 
-// Function to close the modal
 function closeModal() {
   modal.style.display = "none";
 }
 
-// Event listener for the close button
 closeBtn.addEventListener("click", closeModal);
 
-// Event listener to show the modal when the page is loaded
+// show the modal when the page is loaded
 window.addEventListener("load", showModal);
+
+//show the modal when the ? button is clicked
+openBtn.addEventListener("click", showModal);
 
 
 async function init(){
@@ -39,17 +40,7 @@ async function init(){
     setLoading(false);
     isLoading= false;
     
-    
-    /*function addLetter (letter) {
-        if(currentGuess.length < ANSWER_LENGTH){
-            currentGuess += letter; // add letter to the end
-        } else{ // replace the last letter
-            currentGuess = currentGuess.substring(0, currentGuess.length -1) + letter;
-        }
-            letters[ ANSWER_LENGTH * currentRow + currentGuess.length - 1].innerText = letter;
-        
-    } */
-
+    // Add the word to the scoreboard
     function addLetter(letter) {
         if (currentGuess.length < ANSWER_LENGTH) {
           currentGuess += letter; // add letter to the end

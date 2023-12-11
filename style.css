@@ -13,6 +13,25 @@
     color: black;
     text-align: center;
     padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+  }
+  .game-name {
+    margin: 0 auto;
+  }
+  .btn{
+    border-radius: 50%;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    font-size: 20px;
+    border-style: none;
+    background-color: #FFFFFF;
+    border: 3px solid #000000;
+    margin-right: 10px; 
+    
   }
   .wait-bar{
     text-align: center;
