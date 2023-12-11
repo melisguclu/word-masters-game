@@ -11,9 +11,7 @@ const openBtn = document.getElementById("howToPlayBtn");
 
 const keyboardLetters = document.querySelectorAll('.key');
 
-
-
-//to show the modal
+//show the "how to play"modal
 function showModal() {
   modal.style.display = "block";
 }
@@ -29,6 +27,7 @@ window.addEventListener("load", showModal);
 
 //show the modal when the ? button is clicked
 openBtn.addEventListener("click", showModal);
+
 
 
 async function init(){
@@ -114,7 +113,6 @@ async function init(){
         });
         
         // Add flipping class to the letters in the current guess
-        // Add flipping class to the letters in the current guess with a delay
         for (let i = 0; i < currentGuess.length; i++) {
             const index = ANSWER_LENGTH * currentRow + i;
             if (letters[index]) {
