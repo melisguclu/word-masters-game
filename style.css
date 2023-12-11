@@ -25,6 +25,43 @@
 
   }
 
+  /* Style for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the modal content and center it */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+/* Style for the close button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
   .scoreboard{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -165,3 +202,94 @@
   .bouncing {
     animation: bounce 0.3s;
   }
+
+  .scoreboard-example{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .scoardboard-letter-example{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    text-transform: uppercase;
+    border: 2px solid #ccc;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-content > p > span{
+    font-weight: bold;
+}
+
+  .green {
+    animation: greenAnimation 1s ease-in forwards;
+    transition: background-color 1s;
+  }
+  
+  @keyframes greenAnimation {
+    0% {
+    
+      background-color: initial;
+
+    }
+    50% {
+      transform:  scaleY(0);
+    }
+    100% {
+      
+      background-color: #6AA964;
+      border: 3px solid #6AA964;
+      color: white;
+    }
+  }
+
+  .orange {
+    animation: orangeAnimation 1s ease-in forwards;
+    transition: background-color 1s;
+  }
+  
+  @keyframes orangeAnimation {
+    0% {
+    
+      background-color: initial;
+
+    }
+    50% {
+      transform:  scaleY(0);
+    }
+    100% {
+      
+      background-color: #C9B458;
+      border: 3px solid #C9B458;
+      color: white;
+    }
+  }
+
+
+  .grey {
+    animation: greyAnimation 1s ease-in forwards;
+    transition: background-color 1s;
+  }
+  
+  @keyframes greyAnimation {
+    0% {
+    
+      background-color: initial;
+
+    }
+    50% {
+      transform:  scaleY(0);
+    }
+    100% {
+      
+      background-color: #787C7E;
+      border: 3px solid #787C7E;
+      color: white;
+    }
+  }
+
+
+  

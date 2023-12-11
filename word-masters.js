@@ -3,6 +3,28 @@ const loadingDiv = document.querySelector('.wait-bar');
 const ANSWER_LENGTH = 5;
 const ROUNDS = 6;
 
+// Get the modal element
+const modal = document.getElementById("howToPlayModal");
+
+// Get the close button element
+const closeBtn = document.getElementsByClassName("close-btn")[0];
+
+// Function to show the modal
+function showModal() {
+  modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Event listener for the close button
+closeBtn.addEventListener("click", closeModal);
+
+// Event listener to show the modal when the page is loaded
+window.addEventListener("load", showModal);
+
 
 async function init(){
     let currentGuess = "";

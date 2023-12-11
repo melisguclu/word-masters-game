@@ -14,6 +14,45 @@
     <div class="wait-bar show">
         <div class="spiral">🌀</div>
     </div>
+    
+    <div id="howToPlayModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>How to Play</h2>
+          <h3>Guess the Word in 6 tries.</h3>
+          <ul>
+            <li>Each guess must be a valid 5-letter word.</li>
+            <li>The color of the tiles will change to show how close your guess was to the word.</li>
+          </ul>
+          <h3>Examples</h3>
+          <div class="scoreboard-example">
+           <div class="scoardboard-letter-example green">W</div>
+           <div class="scoardboard-letter-example">E</div>
+           <div class="scoardboard-letter-example">A</div>
+           <div class="scoardboard-letter-example">R</div>
+           <div class="scoardboard-letter-example">Y</div>
+         </div>
+         <p><span>W</span> is in the word and in the correct spot.</p>
+
+         <div class="scoreboard-example">
+            <div class="scoardboard-letter-example">P</div>
+            <div class="scoardboard-letter-example orange">I</div>
+            <div class="scoardboard-letter-example">L</div>
+            <div class="scoardboard-letter-example">L</div>
+            <div class="scoardboard-letter-example">S</div>
+          </div>
+        <p><span>I</span> is in the word but in the wrong spot.</p>
+
+          <div class="scoreboard-example">
+            <div class="scoardboard-letter-example">V</div>
+            <div class="scoardboard-letter-example">A</div>
+            <div class="scoardboard-letter-example">G</div>
+            <div class="scoardboard-letter-example grey">U</div>
+            <div class="scoardboard-letter-example">E</div>
+          </div>
+        <p><span>U</span> is not in the word.</p>
+        </div>
+      </div>
 
     <div class="scoreboard">
 
