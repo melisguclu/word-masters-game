@@ -3,6 +3,7 @@ const loadingDiv = document.querySelector('.wait-bar');
 const ANSWER_LENGTH = 5;
 const ROUNDS = 6;
 
+
 async function init(){
     let currentGuess = "";
     let currentRow = 0;
@@ -17,7 +18,7 @@ async function init(){
     isLoading= false;
     
     
-    function addLetter (letter) {
+    /*function addLetter (letter) {
         if(currentGuess.length < ANSWER_LENGTH){
             currentGuess += letter; // add letter to the end
         } else{ // replace the last letter
@@ -25,7 +26,26 @@ async function init(){
         }
             letters[ ANSWER_LENGTH * currentRow + currentGuess.length - 1].innerText = letter;
         
-    }
+    } */
+
+    function addLetter(letter) {
+        if (currentGuess.length < ANSWER_LENGTH) {
+          currentGuess += letter; // add letter to the end
+        } else {
+          currentGuess = currentGuess.substring(0, currentGuess.length - 1) + letter;
+        }
+      
+        const letterIndex = ANSWER_LENGTH * currentRow + currentGuess.length - 1;
+        const letterElement = letters[letterIndex];
+  
+        letterElement.innerText = letter;
+        letterElement.classList.add('bouncing');
+      
+        // Remove the bouncing class after the animation ends
+        letterElement.addEventListener('animationend', () => {
+          letterElement.classList.remove('bouncing');
+        }, { once: true });
+      }
 
 
     async function commit(){
