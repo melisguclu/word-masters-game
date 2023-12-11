@@ -9,6 +9,10 @@ const closeBtn = document.getElementsByClassName("close-btn")[0];
 
 const openBtn = document.getElementById("howToPlayBtn");
 
+const keyboardLetters = document.querySelectorAll('.key');
+
+
+
 //to show the modal
 function showModal() {
   modal.style.display = "block";
@@ -60,6 +64,25 @@ async function init(){
         }, { once: true });
       }
 
+      keyboardLetters.forEach(key =>{
+        key.addEventListener('click', () =>{
+            console.log(key.innerText);
+            if(key.innerText === "ENTER"){
+                console.log("enter");
+                commit();
+            } else if(key.innerText === "DELETE"){
+                console.log("delete");
+                backspace();
+            }
+            else{
+            addLetter(key.innerText);
+            }
+        })
+    
+    })
+
+     
+
 
     async function commit(){
         if(currentGuess.length != ANSWER_LENGTH){
@@ -101,12 +124,6 @@ async function init(){
             }
         }
             
-
-       // changing the color of the letters 
-       for(let i = 0; i < ANSWER_LENGTH; i++){
-        letters[ ANSWER_LENGTH * currentRow + i].classList.add("changetextcolor");
-         }
-
         // set correct, wrong or close
         const guessParts = currentGuess.split("");
         const map = makeMap(wordParts);
@@ -115,6 +132,13 @@ async function init(){
             //mark as correct
             if(guessParts[i] === wordParts[i]){
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("correct");
+                /* add the virtual kyeboard's letter class correct*/
+                keyboardLetters.forEach(key =>{
+                    if(key.innerText === guessParts[i]){
+                        key.classList.add("correct");
+                    }
+                })
+            
                 map[guessParts[i]]--;
             }
         }
@@ -125,9 +149,20 @@ async function init(){
             } else if(wordParts.includes(guessParts[i]) && map[guessParts[i]] > 0){
                 // mark as close
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("close");
+                keyboardLetters.forEach(key =>{
+                    
+                    if(key.innerText === guessParts[i] && !key.classList.contains("correct")){
+                        key.classList.add("close");
+                    }
+                })
                 map[guessParts[i]]--;
             } else{
                 letters[ ANSWER_LENGTH * currentRow + i].classList.add("wrong");
+                keyboardLetters.forEach(key =>{
+                    if(key.innerText === guessParts[i] && !key.classList.contains("correct") && !key.classList.contains("close")){
+                        key.classList.add("wrong");
+                    }
+                })
             }
         }
 

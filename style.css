@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     color: #333;
+   
   }
   .navbar{
     border-bottom: 2px solid black;
@@ -103,21 +104,22 @@
     justify-content: center;
     
   }
-  .correct{
-    background-color: #006300;
-    border: 3px solid #006300;
+  .wrong{
+    background-color: #888888;
+    border: 3px solid #888888;
+    color: white;
   }
   .close{
     background-color: #DAA520;
     border: 3px solid #DAA520;
-  }
-  .wrong{
-    background-color: #888888;
-    border: 3px solid #888888;
-  }
-  .changetextcolor{
     color: white;
   }
+  .correct{
+    background-color: #006300;
+    border: 3px solid #006300;
+    color: white;
+  }
+  
   .invalid{
     animation: flash 1s;
   }
@@ -310,5 +312,60 @@
     }
   }
 
+  .virtual-keyboard {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    width: 30%;
+    width: fit-content ;
+    padding: 10px;
+  }
 
+  .row{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .row2 , .row3{
+    display: flex;
+    justify-content: center;    
+  }
+
+  .key{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 55px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #D3D6DA;
+    border-radius: 5px;
+  }
+
+  #key-enter , #key-delete{
+    width: 65px;
+    font-size: 10px;
+  }
+  
+  .wrong{
+    background-color: #787C7E;
+    border: 3px solid #787C7E;
+    color: white;
+  }
+  .close{
+    background-color: #C9B458;
+    border: 3px solid #C9B458;
+    color: white;
+  }
+  .correct{
+    background-color: #6AA964;
+    border: 3px solid #6AA964;
+    color: white;
+  }
   
