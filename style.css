@@ -49,12 +49,15 @@
   }
   .correct{
     background-color: #006300;
+    border: 3px solid #006300;
   }
   .close{
     background-color: #DAA520;
+    border: 3px solid #DAA520;
   }
   .wrong{
     background-color: #888888;
+    border: 3px solid #888888;
   }
   .changetextcolor{
     color: white;
