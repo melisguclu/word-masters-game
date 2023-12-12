@@ -28,6 +28,13 @@ window.addEventListener("load", showModal);
 //show the modal when the ? button is clicked
 openBtn.addEventListener("click", showModal);
 
+//close the modal when the user clicks outside of the modal
+window.addEventListener("click", function (event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+});
+
 
 
 async function init(){
