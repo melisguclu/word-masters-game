@@ -363,4 +363,19 @@
     border: 3px solid #6AA964;
     color: white;
   }
-  
+
+  .keyboardShadow{
+    background-color: #e3e6e9;
+    animation: keyboardShadow 1s; 
+  }
+  @keyframes changeBackgroundColor {
+    0% {
+      background-color: initial;
+    }
+    50% {
+      background-color: #e3e6e9; 
+    }
+    100% {
+      background-color: initial;
+    }
+  }

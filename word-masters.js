@@ -222,10 +222,23 @@ async function init(){
             backspace(); 
         } else if(isLetter(action)){
             addLetter(action.toUpperCase()); 
+            shadowKeyboardLetter(action.toUpperCase());
+
         }else{
             //ignore
         }
     });
+}
+
+function shadowKeyboardLetter(letter){
+    keyboardLetters.forEach(key =>{
+        if(key.innerText === letter){
+            key.classList.add("keyboardShadow");
+            setTimeout(function () { 
+                key.classList.remove("keyboardShadow"); 
+                }, 100);
+        }
+    })
 }
  
 
