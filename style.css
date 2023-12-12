@@ -323,16 +323,11 @@
   }
 
   .row{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    display: flex;
+    /* grid-template-columns: repeat(10, 1fr); */
     justify-content: center;
     gap: 5px;
-    margin-bottom: 10px;
-  }
-
-  .row2 , .row3{
-    display: flex;
-    justify-content: center;    
+    margin-bottom: 5px;
   }
 
   .key{
