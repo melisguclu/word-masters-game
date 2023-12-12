@@ -192,21 +192,27 @@ async function init(){
         if(currentGuess.length = 0){
             return;
         }
+        const letterIndex = ANSWER_LENGTH * currentRow + currentGuess.length - 1;
+        const letterElement = letters[letterIndex];
+
         currentGuess = currentGuess.substring(0, currentGuess.length -1);
+        letterElement.classList.remove("invalid");
         letters[ ANSWER_LENGTH * currentRow + currentGuess.length ].innerText = "";
 
     }
 
-    function markInvalidWord(){
-        for(let i = 0; i < ANSWER_LENGTH; i++){
-            letters[ ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); // remove invalid class if it exists
-
-            setTimeout(function () { 
-            letters[ ANSWER_LENGTH * currentRow + i].classList.add("invalid"); // add invalid class
-            }, 10);
+    function markInvalidWord() {
+        for (let i = 0; i < ANSWER_LENGTH; i++) {
+            letters[ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); 
         }
-    }
 
+        setTimeout(function () {
+            for (let i = 0; i < ANSWER_LENGTH; i++) {
+                letters[ANSWER_LENGTH * currentRow + i].classList.add("invalid"); 
+            }
+        }, 10);
+
+    }
 
     document.addEventListener('keydown' , function handleKeyPress (event){
         if(done || isLoading){
