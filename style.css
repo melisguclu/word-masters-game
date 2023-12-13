@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     color: #333;
-   
   }
   .navbar{
     border-bottom: 2px solid black;
@@ -17,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between; 
+    height: 100px;
   }
   .game-name {
     margin: 0 auto;
@@ -37,12 +37,25 @@
   .wait-bar{
     text-align: center;
     padding: 15px 0;
-    height: 60px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
-
+  }
+  .word-div{
+    height: 45px;    
+  }
+  .word-div > p{
+    font-size: 20px;
+    font-weight: bold;
+    width: max-content;
+    padding: 7px 7px;
+    margin: 0 auto;
+    background-color: #121212;
+    color: white;
+    border-radius: 5px;
+    display: none;
   }
 
   /* Style for the modal */
@@ -313,13 +326,15 @@
   }
 
   .virtual-keyboard {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 30px;
+    bottom: 100px;
     width: 30%;
     width: fit-content ;
     padding: 10px;
+    margin: 0 auto;
+
   }
 
   .row{

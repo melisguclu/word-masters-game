@@ -9,6 +9,8 @@ const openBtn = document.getElementById("howToPlayBtn");
 
 const keyboardLetters = document.querySelectorAll('.key');
 
+const showAnswer = document.querySelector('.word');
+
 //show the "how to play"modal
 function showModal() {
   modal.style.display = "none";
@@ -177,7 +179,11 @@ async function init(){
             }
         }
 
-        
+        function showAnswerFunct(){
+            showAnswer.style.display = "block";
+            showAnswer.innerText = word;
+        }
+
          //first row is complete
          currentRow++;
          if(currentGuess === word){
@@ -188,6 +194,7 @@ async function init(){
              return;
             } else if(currentRow === ROUNDS){
                 //alert(`you lose the word was ${word}`);
+                showAnswerFunct();
                 done = true;
             }
             currentGuess= "";
@@ -243,6 +250,9 @@ async function init(){
         }
     });
 }
+
+
+
 
 function shadowKeyboardLetter(letter){
     keyboardLetters.forEach(key =>{
