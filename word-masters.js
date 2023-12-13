@@ -13,7 +13,7 @@ const showAnswer = document.querySelector('.word');
 
 //show the "how to play"modal
 function showModal() {
-  modal.style.display = "none";
+  modal.style.display = "block";
 }
 
 function closeModal() {
@@ -36,7 +36,6 @@ window.addEventListener("click", function (event) {
 });
 
 
-
 async function init(){
     for (let i = 1; i <= 30; i++) {
         const letter = document.createElement('div');
@@ -57,6 +56,23 @@ async function init(){
     let done = false;
     setLoading(false);
     isLoading= false;
+
+
+    function isGenius(){ //performace based on the number of guesses
+        showAnswer.style.display = "block";
+        if(currentRow === 1){
+            showAnswer.innerText = "GENIUS";
+        } else if (currentRow === 2){
+            showAnswer.innerText = "MAGNIFICENT";
+        } else if (currentRow === 3){       
+            showAnswer.innerText = "SPLENDID";
+        }else if (currentRow === 4){       
+            showAnswer.innerText = "Great";
+        }
+        else{
+            showAnswer.innerText = "PHEW";
+        }
+    }
     
     // Add the word to the scoreboard
     function addLetter(letter) {
@@ -188,8 +204,9 @@ async function init(){
          currentRow++;
          if(currentGuess === word){
              //win
-             alert('you win');
+             //alert('you win');
              document.querySelector('.game-name').classList.add('winner')
+             isGenius();
              done = true;
              return;
             } else if(currentRow === ROUNDS){
@@ -239,6 +256,7 @@ async function init(){
                 letters[ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); 
             }    
            commit(); 
+           console.log(currentRow);
         } else if(action === "Backspace"){
             backspace(); 
         } else if(isLetter(action)){
