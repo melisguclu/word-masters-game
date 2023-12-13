@@ -1,19 +1,17 @@
-const letters = document.querySelectorAll('.scoreboard-letter');
-const loadingDiv = document.querySelector('.wait-bar');
+const scoreboard = document.querySelector('.scoreboard');
+const loadingSpiral = document.querySelector('.wait-bar');
 const ANSWER_LENGTH = 5;
 const ROUNDS = 6;
 
 const modal = document.getElementById("howToPlayModal");
-
 const closeBtn = document.getElementsByClassName("close-btn")[0];
-
 const openBtn = document.getElementById("howToPlayBtn");
 
 const keyboardLetters = document.querySelectorAll('.key');
 
 //show the "how to play"modal
 function showModal() {
-  modal.style.display = "block";
+  modal.style.display = "none";
 }
 
 function closeModal() {
@@ -38,6 +36,14 @@ window.addEventListener("click", function (event) {
 
 
 async function init(){
+    for (let i = 1; i <= 30; i++) {
+        const letter = document.createElement('div');
+        letter.classList.add('scoreboard-letter');
+        scoreboard.appendChild(letter);
+    }
+    const letters = document.querySelectorAll('.scoreboard-letter');
+
+
     let currentGuess = "";
     let currentRow = 0;
     let isLoading = true;
@@ -181,7 +187,7 @@ async function init(){
              done = true;
              return;
             } else if(currentRow === ROUNDS){
-                alert(`you lose the word was ${word}`);
+                //alert(`you lose the word was ${word}`);
                 done = true;
             }
             currentGuess= "";
@@ -255,7 +261,13 @@ function isLetter(letter){
 }
 
 function setLoading(isLoading){
-    loadingDiv.classList.toggle('show' , isLoading); // if isLoading is true, add show class
+ //loadingSpiral.classList.toggle('show' , isLoading); // if isLoading is true, add show class
+ loadingSpiral.classList.toggle('show' , isLoading);
+
+
+   
+
+
 }
 
 function makeMap (array) {  // keep track of how many of each letter
