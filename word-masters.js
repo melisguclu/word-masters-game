@@ -211,7 +211,6 @@ async function init(){
                 letters[ANSWER_LENGTH * currentRow + i].classList.add("invalid"); 
             }
         }, 10);
-
     }
 
     document.addEventListener('keydown' , function handleKeyPress (event){
@@ -223,6 +222,9 @@ async function init(){
         console.log(action);
 
         if(action === 'Enter'){
+            for (let i = 0; i < ANSWER_LENGTH; i++) { // remove invalid class from all letters if exists
+                letters[ANSWER_LENGTH * currentRow + i].classList.remove("invalid"); 
+            }    
            commit(); 
         } else if(action === "Backspace"){
             backspace(); 
