@@ -17,9 +17,14 @@
     align-items: center;
     justify-content: space-between; 
     height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   grid-template-areas: 
+    "area1 area2 area3";
   }
   .game-name {
     margin: 0 auto;
+    grid-area: area2;
   }
   .btn{
     border-radius: 50%;
@@ -31,8 +36,7 @@
     border-style: none;
     background-color: #FFFFFF;
     border: 3px solid #000000;
-    margin-right: 10px; 
-    
+    grid-area: area1;
   }
   .wait-bar{
     text-align: center;
@@ -160,50 +164,6 @@
     }
 
     /* winner animation */
-
-@keyframes rainbow {
-    100%,
-    0% {
-      color: rgb(255, 0, 0);
-    }
-    8% {
-      color: rgb(255, 127, 0);
-    }
-    16% {
-      color: rgb(255, 255, 0);
-    }
-    25% {
-      color: rgb(127, 255, 0);
-    }
-    33% {
-      color: rgb(0, 255, 0);
-    }
-    41% {
-      color: rgb(0, 255, 127);
-    }
-    50% {
-      color: rgb(0, 255, 255);
-    }
-    58% {
-      color: rgb(0, 127, 255);
-    }
-    66% {
-      color: rgb(0, 0, 255);
-    }
-    75% {
-      color: rgb(127, 0, 255);
-    }
-    83% {
-      color: rgb(255, 0, 255);
-    }
-    91% {
-      color: rgb(255, 0, 127);
-    }
-  }
-  
-  .winner {
-    animation: rainbow 4s infinite linear;
-  }
 
   @keyframes flip {
     0% {
@@ -334,7 +294,10 @@
     width: fit-content ;
     padding: 10px;
     margin: 0 auto;
-
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .row{
@@ -394,3 +357,19 @@
       background-color: initial;
     }
   }
+  /**responsivce mobile vers*/
+
+  @media only screen and (max-width: 768px) {
+    .virtual-keyboard {
+      width: 100%;
+    }
+    /*Mobile modal content*/
+  .modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  }
+  
