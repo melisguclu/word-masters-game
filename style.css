@@ -106,8 +106,9 @@
     row-gap: 10px;
     column-gap: 10px;
     left: 50%;
+    top: 15%;
     transform: translateX(-50%);
-    position: absolute;
+    position: fixed;
   }
   .scoreboard-letter{
     width: 50px;
@@ -286,10 +287,6 @@
   }
 
   .virtual-keyboard {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100px;
     width: 30%;
     width: fit-content ;
     padding: 10px;
@@ -298,6 +295,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+   margin-top: 4rem;
   }
 
   .row{
